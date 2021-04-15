@@ -4,10 +4,10 @@
         "version": "PTDL_v1",
         "update_url": null
     },
-    "exported_at": "2021-03-29T20:07:04+02:00",
+    "exported_at": "2021-04-15T17:23:35+02:00",
     "name": "Fof",
     "author": "avalongamecs@gmail.com",
-    "description": "fof",
+    "description": "Fistful of Frags",
     "features": null,
     "images": [
         "quay.io\/pterodactyl\/core:source"
@@ -39,7 +39,7 @@
         },
         {
             "name": "Game Name",
-            "description": "nmrih game",
+            "description": "fof game",
             "env_variable": "SRCDS_GAME",
             "default_value": "fof",
             "user_viewable": true,
