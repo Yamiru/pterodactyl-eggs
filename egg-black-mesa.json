@@ -4,16 +4,16 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2022-06-05T14:06:36+02:00",
+    "exported_at": "2022-07-17T07:02:24+02:00",
     "name": "Black Mesa",
-    "author": "avalongamecs@gmail.com",
-    "description": "Black Mesa",
+    "author": "yamiru@yamiru.com",
+    "description": "Black Mesa is a 2020 first-person shooter game. It is a third-party remake of Half-Life (1998) made in the Source game engine.",
     "features": null,
     "docker_images": {
         "quay.io\/pterodactyl\/core:source": "quay.io\/pterodactyl\/core:source"
     },
     "file_denylist": [],
-    "startup": ".\/srcds_run -game {{SRCDS_GAME}} -console -port {{SERVER_PORT}} +map {{SRCDS_MAP}} +ip 0.0.0.0 -strictportbind -norestart",
+    "startup": ".\/srcds_run -game {{SRCDS_GAME}} -strictportbind -ip 0.0.0.0 -port {{SERVER_PORT}} +clientport {{SRCDS_CPORT}} +tv_port {{SRCDS_STV}} +map {{SRCDS_MAP}} +servercfgfile server.cfg -maxplayers {{MAX_PLAYERS}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"gameserver Steam ID\"\r\n}",
@@ -56,6 +56,36 @@
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|string|max:25",
+            "field_type": "text"
+        },
+        {
+            "name": "Client port",
+            "description": "client port",
+            "env_variable": "SRCDS_CPORT",
+            "default_value": "27005",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|regex:\/^(\\w{1,20})$\/",
+            "field_type": "text"
+        },
+        {
+            "name": "Source TV",
+            "description": "source TV",
+            "env_variable": "SRCDS_STV",
+            "default_value": "27020",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Max Players",
+            "description": "The maximum amount of players allowed on your game server.",
+            "env_variable": "MAX_PLAYERS",
+            "default_value": "32",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|integer|max:128",
             "field_type": "text"
         }
     ]
